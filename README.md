@@ -7,12 +7,11 @@
 Mở **Claude Code** ở bất kỳ thư mục dự án nào, rồi gõ:
 
 ```
-/plugin marketplace add tonyacademy/tony-agents
+/plugin marketplace add khoale2107/tony-agents
 /plugin install cfo-agent@tony-agents
 ```
 
-> Thay `tonyacademy/tony-agents` bằng đường dẫn repo GitHub thật khi đã publish.
-> Cài từ máy (thử tại chỗ): `/plugin marketplace add /Users/tonyacademy/tony-agents`
+> Cài từ máy (thử tại chỗ, không cần mạng): `/plugin marketplace add /Users/tonyacademy/tony-agents`
 
 Sau khi cài, gõ lệnh của agent để nó tự dựng cho bạn — ví dụ:
 
