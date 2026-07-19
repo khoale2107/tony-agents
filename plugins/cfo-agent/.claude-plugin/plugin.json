@@ -1,0 +1,9 @@
+{
+  "name": "cfo-agent",
+  "version": "0.1.0",
+  "description": "CFO Agent — dựng một dịch vụ báo cáo tài chính tự động chạy 7h sáng mỗi ngày, đọc số từ Google Sheet, tính doanh thu/chi phí/lợi nhuận, nhờ AI viết nhận định, rồi gửi qua Telegram.",
+  "author": {
+    "name": "Tony Wedding Academy"
+  },
+  "keywords": ["tài chính", "cfo", "báo cáo", "telegram", "google-sheet", "cron"]
+}

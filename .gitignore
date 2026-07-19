@@ -1,0 +1,11 @@
+# KHÔNG BAO GIỜ commit secret/data của học viên hay của mình.
+.env
+*.env
+!.env.example
+.venv/
+__pycache__/
+*.log
+*.pyc
+
+# Data thật (chỉ giữ file mẫu)
+sample_output/

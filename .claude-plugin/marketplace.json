@@ -1,0 +1,20 @@
+{
+  "name": "tony-agents",
+  "owner": {
+    "name": "Tony Wedding Academy",
+    "email": "thongminhdoan@gmail.com"
+  },
+  "metadata": {
+    "description": "Bộ 50 AI Agents của khóa học Tony Academy — cài bằng Claude Code, mỗi học viên chạy trên máy mình.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "cfo-agent",
+      "source": "./plugins/cfo-agent",
+      "description": "CFO Agent — báo cáo tài chính 7h sáng qua Telegram: doanh thu, chi phí, lợi nhuận kèm nhận định AI. Đọc dữ liệu từ Google Sheet của bạn.",
+      "version": "0.1.0",
+      "keywords": ["tài chính", "cfo", "báo cáo", "telegram", "google-sheet"]
+    }
+  ]
+}

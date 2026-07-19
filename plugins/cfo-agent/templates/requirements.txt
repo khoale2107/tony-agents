@@ -1,0 +1,3 @@
+# CFO Agent chỉ cần 1 thư viện ngoài (để gọi Claude).
+# Phần đọc Google Sheet và gửi Telegram dùng thư viện chuẩn của Python.
+anthropic>=0.40
