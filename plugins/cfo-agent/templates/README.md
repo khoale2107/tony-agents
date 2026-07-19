@@ -9,7 +9,10 @@ Agent này mỗi sáng sẽ: đọc số liệu từ **Google Sheet** của bạ
 ## 1. Chuẩn bị (làm 1 lần)
 
 1. **Cài Python 3.10+** (macOS thường có sẵn; Windows tải tại python.org, nhớ tick "Add to PATH").
-2. **Claude API key**: vào https://console.anthropic.com → API Keys → tạo key.
+2. **Trí tuệ AI — dùng GÓI Claude Code của bạn (không tốn thêm tiền):**
+   cài Claude Code và đăng nhập gói (`claude login`). Agent sẽ tự gọi `claude` để viết nhận định.
+   - Điều kiện: **máy phải BẬT** vào lúc lịch chạy (7h sáng) và Claude Code đã đăng nhập gói.
+   - Nếu máy hay tắt/ngủ, hoặc bạn muốn "cắm là chạy" độc lập, xem mục *chế độ API key* trong `.env.example`.
 3. **Google Sheet** ghi thu/chi, có các cột: `Ngày`, `Loại` (Doanh thu / Chi phí), `Hạng mục`, `Số tiền`.
    - Chia sẻ: File → Share → *Anyone with the link* (Viewer).
    - Lấy link CSV: `https://docs.google.com/spreadsheets/d/<ID>/export?format=csv&gid=<GID>`

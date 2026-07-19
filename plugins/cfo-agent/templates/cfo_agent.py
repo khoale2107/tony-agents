@@ -18,6 +18,8 @@ import csv
 import io
 import json
 import os
+import shutil
+import subprocess
 import sys
 import urllib.request
 import urllib.parse
@@ -157,23 +159,30 @@ def fmt_vnd(x: float) -> str:
 # 4. Nhờ Claude viết nhận định
 # ---------------------------------------------------------------------------
 
-def ai_commentary(summary: dict) -> str:
-    api_key = cfg("ANTHROPIC_API_KEY")
-    if not api_key:
-        return "(Chưa cấu hình ANTHROPIC_API_KEY nên bỏ qua phần nhận định AI.)"
-    try:
-        import anthropic
-    except ImportError:
-        return "(Chưa cài thư viện 'anthropic'. Chạy: pip install anthropic)"
+def find_claude() -> str:
+    """Tìm đường dẫn tới Claude Code CLI (kể cả khi PATH bị tối giản do launchd/cron)."""
+    override = cfg("CLAUDE_BIN")
+    candidates = [override] if override else []
+    which = shutil.which("claude")
+    if which:
+        candidates.append(which)
+    candidates += [
+        str(Path.home() / ".local/bin/claude"),
+        "/usr/local/bin/claude",
+        "/opt/homebrew/bin/claude",
+    ]
+    for c in candidates:
+        if c and Path(c).exists():
+            return c
+    return ""
 
-    model = cfg("ANTHROPIC_MODEL", "claude-opus-4-8")
+
+def build_prompt(summary: dict) -> str:
     company = cfg("COMPANY_NAME", "công ty")
-
     top_costs = "\n".join(
         f"- {item}: {fmt_vnd(v)}" for item, v in list(summary["cost_by_item"].items())[:5]
     ) or "- (không có)"
-
-    prompt = f"""Bạn là CFO của {company}. Dưới đây là số liệu tài chính kỳ báo cáo ({summary['period']}, tính đến {summary['as_of']}):
+    return f"""Bạn là CFO của {company}. Dưới đây là số liệu tài chính kỳ báo cáo ({summary['period']}, tính đến {summary['as_of']}):
 
 - Doanh thu: {fmt_vnd(summary['revenue'])}
 - Chi phí: {fmt_vnd(summary['cost'])}
@@ -183,16 +192,52 @@ def ai_commentary(summary: dict) -> str:
 Các khoản chi lớn nhất:
 {top_costs}
 
-Viết một đoạn NHẬN ĐỊNH ngắn gọn (tối đa 5 câu), bằng tiếng Việt, giọng điệu như một giám đốc tài chính báo cáo cho sếp: nêu tình hình, 1-2 điểm đáng chú ý (biên lợi nhuận, khoản chi bất thường), và 1 khuyến nghị hành động. Không lặp lại số liệu đã liệt kê, tập trung vào ý nghĩa."""
+Viết một đoạn NHẬN ĐỊNH ngắn gọn (tối đa 5 câu), bằng tiếng Việt, giọng điệu như một giám đốc tài chính báo cáo cho sếp: nêu tình hình, 1-2 điểm đáng chú ý (biên lợi nhuận, khoản chi bất thường), và 1 khuyến nghị hành động. Không lặp lại số liệu đã liệt kê, tập trung vào ý nghĩa. Chỉ trả về đúng đoạn nhận định, không mở đầu, không markdown."""
 
-    client = anthropic.Anthropic(api_key=api_key)
-    resp = client.messages.create(
-        model=model,
-        max_tokens=1024,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    parts = [b.text for b in resp.content if getattr(b, "type", "") == "text"]
-    return "\n".join(parts).strip() or "(AI không trả về nội dung.)"
+
+def ai_commentary(summary: dict) -> str:
+    prompt = build_prompt(summary)
+
+    # 1) ƯU TIÊN: chạy qua GÓI Claude Code (headless `claude -p`) — dùng gói học
+    #    viên đã có, KHÔNG tốn API key. Prompt tự chứa nên không cần tool/quyền.
+    claude_bin = find_claude()
+    if claude_bin:
+        try:
+            r = subprocess.run(
+                [claude_bin, "-p", prompt],
+                capture_output=True, text=True, timeout=180,
+            )
+            out = (r.stdout or "").strip()
+            if r.returncode == 0 and out:
+                return out
+            print(f"[!] Claude Code không ra kết quả (exit {r.returncode}). "
+                  f"{(r.stderr or '').strip()[:200]}")
+        except Exception as e:
+            print(f"[!] Lỗi gọi Claude Code: {e}")
+
+    # 2) DỰ PHÒNG: dùng Anthropic API key nếu học viên chủ động điền vào .env.
+    api_key = cfg("ANTHROPIC_API_KEY")
+    if api_key:
+        try:
+            import anthropic
+            client = anthropic.Anthropic(api_key=api_key)
+            resp = client.messages.create(
+                model=cfg("ANTHROPIC_MODEL", "claude-opus-4-8"),
+                max_tokens=1024,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            parts = [b.text for b in resp.content if getattr(b, "type", "") == "text"]
+            txt = "\n".join(parts).strip()
+            if txt:
+                return txt
+        except ImportError:
+            print("[!] Chế độ API cần thư viện anthropic. Chạy: pip install anthropic")
+        except Exception as e:
+            print(f"[!] Lỗi gọi API: {e}")
+
+    return ("(Chưa tạo được nhận định AI. Cần MỘT trong hai:\n"
+            " • Cài Claude Code và đăng nhập gói — khuyến nghị, dùng gói không tốn thêm, hoặc\n"
+            " • Điền ANTHROPIC_API_KEY vào file .env.)")
 
 
 # ---------------------------------------------------------------------------

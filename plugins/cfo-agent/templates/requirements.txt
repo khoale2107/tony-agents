@@ -1,3 +1,5 @@
-# CFO Agent chỉ cần 1 thư viện ngoài (để gọi Claude).
-# Phần đọc Google Sheet và gửi Telegram dùng thư viện chuẩn của Python.
-anthropic>=0.40
+# Bản MẶC ĐỊNH (dùng gói Claude Code) KHÔNG cần thư viện ngoài nào —
+# chỉ dùng Python có sẵn + lệnh 'claude'.
+#
+# Chỉ khi bạn chọn chế độ API key (điền ANTHROPIC_API_KEY trong .env) thì cài:
+#   pip install anthropic
