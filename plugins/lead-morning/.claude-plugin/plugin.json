@@ -1,0 +1,7 @@
+{
+  "name": "lead-morning",
+  "version": "0.1.0",
+  "description": "Điểm danh khách tiềm năng mỗi sáng: lead mới, khách 3+ ngày chưa xử lý, nghi no-show, kèm gợi ý ưu tiên từ AI. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["lead", "sale", "crm", "khách hàng", "sáng"]
+}

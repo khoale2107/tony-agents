@@ -1,0 +1,7 @@
+{
+  "name": "duyet-chi",
+  "version": "0.1.0",
+  "description": "Duyệt chi đa cấp qua Telegram: định tuyến theo số tiền (<5tr trưởng nhóm, 5-20tr quản lý, >20tr CEO), nút Duyệt/Từ chối, ghi log.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["duyệt chi", "telegram", "phê duyệt", "tài chính"]
+}

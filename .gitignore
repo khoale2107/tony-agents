@@ -15,3 +15,9 @@ knowledge.md
 
 # Data thật (chỉ giữ file mẫu)
 sample_output/
+
+# File sinh khi chạy agent (dữ liệu/log cục bộ của học viên)
+so_ke.csv
+requests.csv
+.tg_offset
+agent.log

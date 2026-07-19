@@ -14,14 +14,113 @@
       "source": "./plugins/cfo-agent",
       "description": "CFO Agent — báo cáo tài chính 7h sáng qua Telegram: doanh thu, chi phí, lợi nhuận kèm nhận định AI. Nguồn: Google Sheet hoặc ERP (adapter).",
       "version": "0.1.0",
-      "keywords": ["tài chính", "cfo", "báo cáo", "telegram", "google-sheet", "erp"]
+      "keywords": [
+        "tài chính",
+        "cfo",
+        "báo cáo",
+        "telegram",
+        "google-sheet",
+        "erp"
+      ]
     },
     {
       "name": "cskh-agent",
       "source": "./plugins/cskh-agent",
       "description": "Trợ lý CSKH — soạn câu trả lời khách hàng dựa trên kiến thức doanh nghiệp (giá/dịch vụ/chính sách). Test được ngay, không cần cấu hình.",
       "version": "0.1.0",
-      "keywords": ["cskh", "chăm sóc khách hàng", "chatbot", "sale", "trả lời"]
+      "keywords": [
+        "cskh",
+        "chăm sóc khách hàng",
+        "chatbot",
+        "sale",
+        "trả lời"
+      ]
+    },
+    {
+      "name": "budget-controller",
+      "source": "./plugins/budget-controller",
+      "description": "Cảnh báo ngân sách theo phòng ban: so chi thực tế với ngân sách tháng, cảnh báo vượt/sắp vượt kèm nhận định AI. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "ngân sách",
+        "tài chính",
+        "cảnh báo",
+        "phòng ban"
+      ]
+    },
+    {
+      "name": "duyet-chi",
+      "source": "./plugins/duyet-chi",
+      "description": "Duyệt chi đa cấp qua Telegram: định tuyến theo số tiền (<5tr trưởng nhóm, 5-20tr quản lý, >20tr CEO), nút Duyệt/Từ chối, ghi log.",
+      "version": "0.1.0",
+      "keywords": [
+        "duyệt chi",
+        "telegram",
+        "phê duyệt",
+        "tài chính"
+      ]
+    },
+    {
+      "name": "profit-center",
+      "source": "./plugins/profit-center",
+      "description": "Lãi/lỗ theo chi nhánh/cửa hàng: tính doanh thu-chi phí-lợi nhuận từng chi nhánh, xếp hạng, nhận định AI. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "lợi nhuận",
+        "chi nhánh",
+        "tài chính",
+        "báo cáo"
+      ]
+    },
+    {
+      "name": "lead-morning",
+      "source": "./plugins/lead-morning",
+      "description": "Điểm danh khách tiềm năng mỗi sáng: lead mới, khách 3+ ngày chưa xử lý, nghi no-show, kèm gợi ý ưu tiên từ AI. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "lead",
+        "sale",
+        "crm",
+        "khách hàng",
+        "sáng"
+      ]
+    },
+    {
+      "name": "ocr-invoice",
+      "source": "./plugins/ocr-invoice",
+      "description": "Chụp/đưa ảnh hoá đơn, AI đọc và tự ghi sổ (thêm dòng vào so_ke.csv). Dùng gói Claude Code đọc ảnh, không cần API key.",
+      "version": "0.1.0",
+      "keywords": [
+        "ocr",
+        "hoá đơn",
+        "kế toán",
+        "ghi sổ",
+        "ảnh"
+      ]
+    },
+    {
+      "name": "spend-anomaly",
+      "source": "./plugins/spend-anomaly",
+      "description": "Phát hiện khoản chi vượt trung bình và hoá đơn nghi trùng, kèm nhận định AI. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "chi tiêu",
+        "bất thường",
+        "kiểm soát",
+        "gian lận"
+      ]
+    },
+    {
+      "name": "weekly-revenue",
+      "source": "./plugins/weekly-revenue",
+      "description": "Báo cáo doanh thu tuần cho ban lãnh đạo: so 7 ngày gần nhất với tuần trước, bóc theo ngày, nhận định AI. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "doanh thu",
+        "tuần",
+        "báo cáo",
+        "lãnh đạo"
+      ]
     }
   ]
 }

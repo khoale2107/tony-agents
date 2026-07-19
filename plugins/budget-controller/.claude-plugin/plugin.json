@@ -1,0 +1,7 @@
+{
+  "name": "budget-controller",
+  "version": "0.1.0",
+  "description": "Cảnh báo ngân sách theo phòng ban: so chi thực tế với ngân sách tháng, cảnh báo vượt/sắp vượt kèm nhận định AI. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["ngân sách", "tài chính", "cảnh báo", "phòng ban"]
+}

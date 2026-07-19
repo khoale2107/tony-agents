@@ -1,0 +1,7 @@
+{
+  "name": "spend-anomaly",
+  "version": "0.1.0",
+  "description": "Phát hiện khoản chi vượt trung bình và hoá đơn nghi trùng, kèm nhận định AI. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["chi tiêu", "bất thường", "kiểm soát", "gian lận"]
+}

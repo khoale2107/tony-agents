@@ -1,0 +1,7 @@
+{
+  "name": "profit-center",
+  "version": "0.1.0",
+  "description": "Lãi/lỗ theo chi nhánh/cửa hàng: tính doanh thu-chi phí-lợi nhuận từng chi nhánh, xếp hạng, nhận định AI. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["lợi nhuận", "chi nhánh", "tài chính", "báo cáo"]
+}

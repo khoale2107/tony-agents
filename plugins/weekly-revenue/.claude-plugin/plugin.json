@@ -1,0 +1,7 @@
+{
+  "name": "weekly-revenue",
+  "version": "0.1.0",
+  "description": "Báo cáo doanh thu tuần cho ban lãnh đạo: so 7 ngày gần nhất với tuần trước, bóc theo ngày, nhận định AI. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["doanh thu", "tuần", "báo cáo", "lãnh đạo"]
+}
