@@ -57,7 +57,47 @@ def cfg(name: str, default: str = "") -> str:
 # 2. Đọc dữ liệu từ Google Sheet
 # ---------------------------------------------------------------------------
 
-def fetch_sheet_rows(csv_url: str) -> list[dict]:
+def fetch_rows() -> list[dict]:
+    """Điều phối nguồn dữ liệu theo cấu hình SOURCE trong .env.
+
+    Mỗi nguồn là một 'adapter' trả về list[dict] có các cột COL_* (mặc định
+    Ngày/Loại/Hạng mục/Số tiền). Lõi tính toán bên dưới không đổi khi đổi nguồn.
+
+      SOURCE=gsheet | csv   -> đọc Google Sheet (link CSV export) hoặc file CSV
+      SOURCE=custom         -> nạp adapter_custom.py (do bạn / Claude viết cho ERP riêng)
+    """
+    source = cfg("SOURCE", "gsheet").lower()
+    if source in ("", "gsheet", "csv"):
+        return fetch_from_csv(cfg("GOOGLE_SHEET_CSV_URL"))
+    if source == "custom":
+        return fetch_from_custom()
+    raise SystemExit(
+        f"SOURCE='{source}' chưa được hỗ trợ sẵn. Dùng gsheet | csv | custom — "
+        "hoặc mở Claude Code và nhờ nó viết adapter cho nguồn dữ liệu này."
+    )
+
+
+def fetch_from_custom() -> list[dict]:
+    """Nạp adapter_custom.py cùng thư mục — nơi bạn/Claude viết cách lấy số từ
+    ERP/phần mềm riêng. File phải có hàm fetch_rows() trả về list[dict] với các
+    cột COL_* (mặc định Ngày/Loại/Hạng mục/Số tiền)."""
+    path = BASE_DIR / "adapter_custom.py"
+    if not path.exists():
+        raise SystemExit(
+            "SOURCE=custom nhưng chưa có file adapter_custom.py.\n"
+            "Mở Claude Code trong thư mục này và nói: 'dữ liệu của tôi ở <ERP>, "
+            "đây là API/tài khoản' — Claude sẽ viết adapter_custom.py cho bạn."
+        )
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("adapter_custom", path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    if not hasattr(mod, "fetch_rows"):
+        raise SystemExit("adapter_custom.py phải định nghĩa hàm fetch_rows() -> list[dict].")
+    return list(mod.fetch_rows())
+
+
+def fetch_from_csv(csv_url: str) -> list[dict]:
     """Đọc dữ liệu CSV và trả về danh sách dòng (dict theo tên cột).
 
     Ưu tiên GOOGLE_SHEET_CSV_URL. Nếu bỏ trống, tự dùng file sample_data.csv
@@ -82,11 +122,16 @@ def fetch_sheet_rows(csv_url: str) -> list[dict]:
     return [ {(k or "").strip(): (v or "").strip() for k, v in row.items()} for row in reader ]
 
 
-def parse_amount(text: str) -> float:
-    """Chuyển '1.500.000' / '1,500,000' / '1500000 đ' -> 1500000.0."""
-    if not text:
+def parse_amount(text) -> float:
+    """Chuyển '1.500.000' / '1,500,000' / '1500000 đ' / số -> 1500000.0.
+
+    Nhận cả chuỗi (từ CSV) lẫn số (từ adapter ERP tuỳ biến).
+    """
+    if text is None or text == "":
         return 0.0
-    cleaned = "".join(ch for ch in text if ch.isdigit() or ch in ".,-")
+    if isinstance(text, (int, float)):
+        return float(text)
+    cleaned = "".join(ch for ch in str(text) if ch.isdigit() or ch in ".,-")
     # Bỏ dấu phân cách hàng nghìn, giữ dấu trừ.
     cleaned = cleaned.replace(".", "").replace(",", "")
     try:
@@ -289,7 +334,7 @@ def build_report(summary: dict, commentary: str) -> str:
 
 def main() -> None:
     dry_run = "--dry-run" in sys.argv
-    rows = fetch_sheet_rows(cfg("GOOGLE_SHEET_CSV_URL"))
+    rows = fetch_rows()
     summary = summarize(rows)
     commentary = ai_commentary(summary)
     report = build_report(summary, commentary)

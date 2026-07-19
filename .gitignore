@@ -7,5 +7,8 @@ __pycache__/
 *.log
 *.pyc
 
+# Adapter ERP thật của học viên (có thể chứa token) — chỉ giữ bản .example
+adapter_custom.py
+
 # Data thật (chỉ giữ file mẫu)
 sample_output/
