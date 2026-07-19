@@ -24,6 +24,7 @@ Trợ lý sẽ hỏi thông tin (Google Sheet, key Claude, Telegram) và dựng 
 
 | Agent | Lệnh | Mô tả |
 |-------|------|-------|
-| **CFO Agent** | `/setup-cfo-agent` | Báo cáo tài chính 7h sáng qua Telegram: doanh thu, chi phí, lợi nhuận + nhận định AI. Nguồn: Google Sheet. |
+| **CSKH Agent** | `/setup-cskh-agent` | Trợ lý trả lời khách hàng theo kiến thức doanh nghiệp. **Test được ngay**, không cần cấu hình. |
+| **CFO Agent** | `/setup-cfo-agent` | Báo cáo tài chính 7h sáng qua Telegram: doanh thu, chi phí, lợi nhuận + nhận định AI. Nguồn: Google Sheet hoặc ERP. |
 | _(sắp có)_ Budget Controller | — | Cảnh báo vượt ngân sách theo phòng ban. |
 | _(sắp có)_ Duyệt chi Telegram | — | Duyệt chi đa cấp theo ngưỡng qua Telegram. |

@@ -1,0 +1,9 @@
+{
+  "name": "cskh-agent",
+  "version": "0.1.0",
+  "description": "Trợ lý CSKH — soạn câu trả lời khách hàng dựa trên kiến thức doanh nghiệp (giá, dịch vụ, chính sách). Chạy qua gói Claude Code, test được ngay không cần cấu hình.",
+  "author": {
+    "name": "Tony Wedding Academy"
+  },
+  "keywords": ["cskh", "chăm sóc khách hàng", "chatbot", "trả lời", "sale"]
+}

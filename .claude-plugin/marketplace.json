@@ -12,9 +12,16 @@
     {
       "name": "cfo-agent",
       "source": "./plugins/cfo-agent",
-      "description": "CFO Agent — báo cáo tài chính 7h sáng qua Telegram: doanh thu, chi phí, lợi nhuận kèm nhận định AI. Đọc dữ liệu từ Google Sheet của bạn.",
+      "description": "CFO Agent — báo cáo tài chính 7h sáng qua Telegram: doanh thu, chi phí, lợi nhuận kèm nhận định AI. Nguồn: Google Sheet hoặc ERP (adapter).",
       "version": "0.1.0",
-      "keywords": ["tài chính", "cfo", "báo cáo", "telegram", "google-sheet"]
+      "keywords": ["tài chính", "cfo", "báo cáo", "telegram", "google-sheet", "erp"]
+    },
+    {
+      "name": "cskh-agent",
+      "source": "./plugins/cskh-agent",
+      "description": "Trợ lý CSKH — soạn câu trả lời khách hàng dựa trên kiến thức doanh nghiệp (giá/dịch vụ/chính sách). Test được ngay, không cần cấu hình.",
+      "version": "0.1.0",
+      "keywords": ["cskh", "chăm sóc khách hàng", "chatbot", "sale", "trả lời"]
     }
   ]
 }

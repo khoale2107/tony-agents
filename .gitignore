@@ -10,5 +10,8 @@ __pycache__/
 # Adapter ERP thật của học viên (có thể chứa token) — chỉ giữ bản .example
 adapter_custom.py
 
+# Kiến thức CSKH thật của học viên — chỉ giữ bản .example
+knowledge.md
+
 # Data thật (chỉ giữ file mẫu)
 sample_output/
