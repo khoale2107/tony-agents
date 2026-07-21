@@ -558,6 +558,20 @@
         "social media",
         "telegram"
       ]
+    },
+    {
+      "name": "ad-image-composer",
+      "source": "./plugins/ad-image-composer",
+      "description": "Bot ghép ảnh quảng cáo: đưa nhiều ảnh, AI (gói Claude Code) chọn 4 ảnh đẹp nhất và ghép thành ảnh quảng cáo 1080×1080 (1 main + 3 phụ). Có bản HD để in.",
+      "version": "0.1.0",
+      "keywords": [
+        "ghép ảnh",
+        "quảng cáo",
+        "1080",
+        "creative",
+        "thiết kế",
+        "ảnh"
+      ]
     }
   ]
 }

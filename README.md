@@ -554,6 +554,18 @@ Lịch content: nhắc bài đăng hôm nay và 3 ngày tới chưa đăng, cả
 - Điền dữ liệu thật + `.env` khi được hỏi (không commit `.env`).
 - Đặt lịch tự động: `./schedule_mac.sh` (Mac) / `.\schedule_win.ps1` (Windows).
 
+### 43. ad-image-composer
+
+Bot ghép ảnh quảng cáo: đưa nhiều ảnh, AI (gói Claude Code) chọn 4 ảnh đẹp nhất và ghép thành ảnh quảng cáo 1080×1080 (1 main + 3 phụ). Có bản HD để in.
+
+```
+/plugin install ad-image-composer@tony-agents
+/setup-ad-image-composer
+```
+
+- Chạy thử ngay: ./run.sh <thư mục ảnh>              # AI chọn trong thư mục rồi ghép · ./run.sh anh1.jpg anh2.jpg ...      # đưa thẳng danh sách ảnh (>=4) · ./run.sh <...> --hd                 # xuất bản HD 3240×3240 để in · ./run.sh --demo                     # tự sinh ảnh mẫu rồi ghép (chạy thử ngay)
+- Điền dữ liệu thật + `.env` khi được hỏi (không commit `.env`).
+
 ---
 
 Bảo mật: template không chứa key của ai. Dữ liệu/token của bạn chỉ nằm trong `.env` và file cục bộ — `.gitignore` đã chặn không cho commit.

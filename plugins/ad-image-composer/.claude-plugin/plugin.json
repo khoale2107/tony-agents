@@ -1,0 +1,7 @@
+{
+  "name": "ad-image-composer",
+  "version": "0.1.0",
+  "description": "Bot ghép ảnh quảng cáo: đưa nhiều ảnh, AI (gói Claude Code) chọn 4 ảnh đẹp nhất và ghép thành ảnh quảng cáo 1080×1080 (1 main + 3 phụ). Có bản HD để in.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["ghép ảnh", "quảng cáo", "1080", "creative", "thiết kế", "ảnh"]
+}
