@@ -1,0 +1,7 @@
+{
+  "name": "attendance-checkin",
+  "version": "0.1.0",
+  "description": "Chấm công qua bot Telegram: nhân viên gõ /checkin hoặc /checkout, bot ghi attendance.csv (Nhân viên, Ngày, Giờ vào, Giờ ra) và in bảng công trong ngày.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["chấm công", "telegram", "check-in", "nhân sự", "bot lệnh", "bảng công"]
+}

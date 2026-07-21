@@ -1,0 +1,7 @@
+Tên agent,Lệnh,Mô tả
+CFO Agent,/setup-cfo-agent,Báo cáo tài chính mỗi sáng: doanh thu chi phí lợi nhuận đọc từ Google Sheet nhờ AI nhận định rồi gửi Telegram
+Lead Sáng,/setup-lead-morning,Điểm danh khách tiềm năng mỗi sáng: lead mới khách tồn đọng 3+ ngày nghi no-show kèm gợi ý ưu tiên
+Budget Controller,/setup-budget-controller,Cảnh báo ngân sách theo phòng ban: so chi thực tế với ngân sách tháng báo động khi sắp vượt
+Duyệt Chi,/setup-duyet-chi,Gửi đề nghị chi ra Telegram có nút Duyệt/Từ chối để sếp bấm phê duyệt từ xa
+OCR Hóa Đơn,/setup-ocr-invoice,Chụp ảnh hóa đơn AI đọc số tiền ngày nhà cung cấp rồi ghi vào bảng chi phí
+Zalo Blast,/setup-zalo-blast,Gửi tin nhắn chăm sóc hàng loạt cho danh sách khách qua Zalo có kiểm duyệt trước khi gửi

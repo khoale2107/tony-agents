@@ -1,0 +1,7 @@
+{
+  "name": "ab-test-tracker",
+  "version": "0.1.0",
+  "description": "Theo dõi A/B test creative: tính CTR/CVR mỗi biến thể, chọn winner mỗi nhóm, AI nhận định nên nhân bản/cắt. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["a/b test", "creative", "quảng cáo", "ctr", "chuyển đổi", "tối ưu"]
+}

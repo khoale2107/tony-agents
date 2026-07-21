@@ -1,0 +1,7 @@
+{
+  "name": "delivery-notify",
+  "version": "0.1.0",
+  "description": "Đọc deliveries.csv, với đơn 'đã giao' thì AI soạn tin báo khách, gửi qua connector (seam) và ghi lại trạng thái đã báo.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["giao hàng", "báo khách", "tự động hóa", "đơn hàng", "connector"]
+}

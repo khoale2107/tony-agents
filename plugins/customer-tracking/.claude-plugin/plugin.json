@@ -1,0 +1,7 @@
+{
+  "name": "customer-tracking",
+  "version": "0.1.0",
+  "description": "Khách tự tra trạng thái đơn theo số điện thoại; AI trả lời tự nhiên trạng thái từng đơn từ orders.csv.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["tra đơn", "số điện thoại", "trạng thái đơn", "chăm sóc khách hàng", "theo dõi"]
+}

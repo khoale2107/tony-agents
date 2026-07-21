@@ -1,0 +1,7 @@
+{
+  "name": "daily-kpi",
+  "version": "0.1.0",
+  "description": "KPI hàng ngày từng nhân viên: đọc kpi.csv, tính % đạt, xếp hạng, AI nhận định ai vượt/ai hụt cần hỗ trợ. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["kpi", "nhân viên", "xếp hạng", "sales", "báo cáo"]
+}

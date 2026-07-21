@@ -1,0 +1,7 @@
+{
+  "name": "survey-auto",
+  "version": "0.1.0",
+  "description": "Survey tự động sau dịch vụ: gửi khảo sát cho khách vừa xong dịch vụ và tổng hợp phản hồi bằng AI. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["survey", "khảo sát", "hài lòng", "nps", "sau dịch vụ"]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "comment-insight",
+  "version": "0.1.0",
+  "description": "Đọc comments.csv (Nguồn, Nội dung), AI gom mối quan tâm/thắc mắc của khách thành 3-5 insight kèm gợi ý chủ đề content nên làm, gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["comment khách", "insight", "content", "gom nhóm", "telegram"]
+}

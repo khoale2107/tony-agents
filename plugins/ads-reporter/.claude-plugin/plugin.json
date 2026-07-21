@@ -1,0 +1,7 @@
+{
+  "name": "ads-reporter",
+  "version": "0.1.0",
+  "description": "Báo cáo Meta/TikTok Ads mỗi sáng: đọc ads.csv, tính tổng chi và CPM/CPC/CPL từng kênh & chiến dịch, AI nhận định nên tăng ngân sách hay tắt. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["ads", "meta", "tiktok", "cpl", "quảng cáo", "báo cáo"]
+}

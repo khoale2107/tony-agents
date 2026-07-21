@@ -1,0 +1,7 @@
+{
+  "name": "reply-approval",
+  "version": "0.1.0",
+  "description": "Human-in-the-loop: AI soạn câu trả lời khách, đẩy qua Telegram để bạn bấm Duyệt/Sửa/Bỏ trước khi gửi.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["cskh", "human-in-the-loop", "duyệt", "telegram", "trả lời"]
+}

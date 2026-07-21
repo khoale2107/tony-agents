@@ -1,0 +1,7 @@
+{
+  "name": "zalo-zns",
+  "version": "0.1.0",
+  "description": "Zalo ZNS: xác nhận đơn, nhắc lịch hẹn, nhắc thanh toán theo mẫu. Soạn nội dung tự động, gửi qua connector Zalo (seam).",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["zalo", "zns", "nhắc hẹn", "xác nhận đơn", "thanh toán"]
+}

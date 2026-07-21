@@ -1,0 +1,7 @@
+{
+  "name": "competitor-intel",
+  "version": "0.1.0",
+  "description": "Tình báo đối thủ: đọc competitor.csv (ad|post), AI tóm tắt động thái từng đối thủ và cảnh báo mối đe dọa/cơ hội. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["đối thủ", "tình báo", "quảng cáo", "cảnh báo", "marketing", "theo dõi"]
+}

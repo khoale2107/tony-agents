@@ -1,0 +1,7 @@
+{
+  "name": "order-status",
+  "version": "0.1.0",
+  "description": "Đọc orders.csv, đếm đơn ở mỗi khâu và tra chi tiết từng đơn; gửi Telegram tổng quan.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["đơn hàng", "trạng thái", "khâu sản xuất", "theo dõi", "tiến độ"]
+}

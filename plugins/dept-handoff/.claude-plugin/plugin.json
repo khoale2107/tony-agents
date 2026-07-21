@@ -1,0 +1,7 @@
+{
+  "name": "dept-handoff",
+  "version": "0.1.0",
+  "description": "Điều phối đơn giữa các bộ phận SALES → SẢN XUẤT → GIAO: bàn giao đơn, AI soạn thông báo và gửi Telegram vào chat của bộ phận nhận.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["điều phối", "bàn giao", "bộ phận", "đơn hàng", "telegram", "sản xuất"]
+}

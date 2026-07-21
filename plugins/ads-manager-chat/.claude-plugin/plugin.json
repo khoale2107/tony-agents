@@ -1,0 +1,7 @@
+{
+  "name": "ads-manager-chat",
+  "version": "0.1.0",
+  "description": "Điều khiển quảng cáo bằng lệnh Telegram: bật/tắt campaign, đổi ngân sách. Áp lên nền tảng qua connector (seam), ghi actions.csv, hiểu cả câu nói tự nhiên nhờ Claude Code.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["quảng cáo", "campaign", "ngân sách", "telegram", "điều khiển", "ads"]
+}

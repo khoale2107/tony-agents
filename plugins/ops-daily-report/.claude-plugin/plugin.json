@@ -1,0 +1,7 @@
+{
+  "name": "ops-daily-report",
+  "version": "0.1.0",
+  "description": "Báo cáo vận hành cuối ngày: đếm đơn theo từng khâu, phát hiện khâu tắc (tồn nhiều/quá hạn/ứ đọng), AI nhận định và đề xuất xử lý. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["vận hành", "đơn hàng", "báo cáo", "khâu tắc", "cuối ngày"]
+}

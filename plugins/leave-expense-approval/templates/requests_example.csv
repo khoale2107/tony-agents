@@ -1,0 +1,6 @@
+id,thời gian,loại,nhân viên,chi tiết,số tiền,trạng thái,người quyết,message_id
+1,18/07/2026 09:12,Nghỉ phép,Nguyễn Văn A,25/07/2026 — Về quê có việc gia đình,,ĐÃ DUYỆT,Tony,1201
+2,18/07/2026 14:30,Chi phí,Trần Thị B,Taxi đi khảo sát tiệc cưới khách Minh,850000,ĐÃ DUYỆT,Tony,1202
+3,19/07/2026 08:05,Nghỉ phép,Lê Hoàng C,28/07/2026 — Khám sức khỏe định kỳ,,TỪ CHỐI,Tony,1203
+4,19/07/2026 16:45,Chi phí,Phạm Thị D,Mua hoa tươi trang trí backdrop,1200000,CHỜ DUYỆT,,1204
+5,20/07/2026 07:50,Chi phí,Võ Minh E,Đổ xăng xe tải chở đạo cụ,600000,CHỜ DUYỆT,,1205

@@ -1,0 +1,7 @@
+{
+  "name": "payroll-calc",
+  "version": "0.1.0",
+  "description": "Tính lương theo sản phẩm/ca/show từ work.csv: lương mỗi người = tổng (số lượng × đơn giá), cộng tổng quỹ lương, AI tóm tắt. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["lương", "sản phẩm", "ca", "show", "nhân sự"]
+}

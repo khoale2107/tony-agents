@@ -1,0 +1,7 @@
+{
+  "name": "lead-hunter",
+  "version": "0.1.0",
+  "description": "Lead Hunter: quét bài/bình luận từ group, fanpage (bản export), AI chấm điểm khách tiềm năng và xếp hạng. Gửi Telegram top khách.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["lead", "quét khách", "group", "fanpage", "tiềm năng"]
+}

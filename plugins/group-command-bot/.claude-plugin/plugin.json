@@ -1,0 +1,7 @@
+{
+  "name": "group-command-bot",
+  "version": "0.1.0",
+  "description": "Bot lệnh trong group Telegram: nhân viên gõ keyword (vd /donmoi, /tonkho), bot đọc file CSV, lọc dữ liệu và trả lời ngay trong nhóm.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["telegram", "bot lệnh", "group", "keyword", "vận hành", "tồn kho"]
+}

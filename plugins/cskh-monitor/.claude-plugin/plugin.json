@@ -1,0 +1,7 @@
+{
+  "name": "cskh-monitor",
+  "version": "0.1.0",
+  "description": "Giám sát nhân viên tư vấn: chấm điểm phản hồi chậm, khách bị bỏ sót, kèm nhận định AI. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["giám sát", "cskh", "sla", "chấm điểm", "chất lượng"]
+}

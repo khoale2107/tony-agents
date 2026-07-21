@@ -1,0 +1,7 @@
+{
+  "name": "social-dm",
+  "version": "0.1.0",
+  "description": "Reply/DM automation cho TikTok/Facebook: phân loại comment/DM và soạn câu trả lời theo tông từng nền tảng. Gửi qua connector (seam).",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["tiktok", "facebook", "dm", "comment", "social"]
+}

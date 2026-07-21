@@ -1,0 +1,7 @@
+{
+  "name": "content-hunter",
+  "version": "0.1.0",
+  "description": "Content Hunter: quét TikTok/YouTube (bản export) tìm format viral trong ngách, AI rút ra hook đang lên và cách áp dụng cho ngành của bạn. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["content", "viral", "format", "tiktok", "youtube", "hook"]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "content-calendar",
+  "version": "0.1.0",
+  "description": "Lịch content: nhắc bài đăng hôm nay và 3 ngày tới chưa đăng, cảnh báo ngày trống, AI gợi ý, gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["content", "lịch đăng bài", "nhắc lịch", "social media", "telegram"]
+}

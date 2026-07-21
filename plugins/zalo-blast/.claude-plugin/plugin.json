@@ -1,0 +1,7 @@
+{
+  "name": "zalo-blast",
+  "version": "0.1.0",
+  "description": "Zalo blast khách cũ theo phân khúc: sinh nhật, 6 tháng chưa quay lại... AI soạn tin riêng từng nhóm. Gửi qua connector (seam).",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["zalo", "blast", "chăm sóc khách cũ", "phân khúc", "marketing"]
+}

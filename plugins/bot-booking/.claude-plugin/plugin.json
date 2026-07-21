@@ -1,0 +1,7 @@
+{
+  "name": "bot-booking",
+  "version": "0.1.0",
+  "description": "Bot booking: đọc tin nhắn khách, trích nhu cầu, kiểm tra lịch trống và soạn báo giá + xác nhận đặt lịch nhanh. Test được ngay.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["booking", "đặt lịch", "báo giá", "lịch hẹn", "chatbot"]
+}

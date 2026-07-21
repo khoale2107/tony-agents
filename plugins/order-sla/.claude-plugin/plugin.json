@@ -1,0 +1,7 @@
+{
+  "name": "order-sla",
+  "version": "0.1.0",
+  "description": "Nhắc SLA khâu trễ deadline: so hạn xử lý từng khâu/đơn với hôm nay, cảnh báo trễ/sắp hạn kèm người phụ trách và lời nhắc đốc thúc AI. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["SLA", "deadline", "đơn hàng", "nhắc việc", "vận hành"]
+}

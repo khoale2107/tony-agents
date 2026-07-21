@@ -1,0 +1,7 @@
+{
+  "name": "order-pipeline",
+  "version": "0.1.0",
+  "description": "Quản lý đơn hàng đa bước qua các khâu NHẬN → XỬ LÝ → QC → TẠO ĐƠN → XONG: xem bảng theo khâu kèm AI tóm tắt tình hình, chuyển đơn sang khâu kế và ghi lại orders.csv. Báo Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["đơn hàng", "pipeline", "quy trình", "sản xuất", "điều phối"]
+}

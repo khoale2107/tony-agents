@@ -1,0 +1,7 @@
+{
+  "name": "task-reminder",
+  "version": "0.1.0",
+  "description": "Nhắc việc checklist (onboarding, deadline, lịch trực) từ tasks.csv: lọc việc quá hạn/đến hạn/chưa xong, AI sắp thứ tự ưu tiên. Gửi Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["nhắc việc", "checklist", "deadline", "onboarding", "lịch trực"]
+}

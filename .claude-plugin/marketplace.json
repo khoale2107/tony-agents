@@ -5,14 +5,14 @@
     "email": "thongminhdoan@gmail.com"
   },
   "metadata": {
-    "description": "Bộ 50 AI Agents của khóa học Tony Academy — cài bằng Claude Code, mỗi học viên chạy trên máy mình.",
-    "version": "0.1.0"
+    "description": "Bộ AI Agents của khóa học Tony Academy — cài bằng Claude Code, mỗi học viên chạy trên máy mình.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "cfo-agent",
       "source": "./plugins/cfo-agent",
-      "description": "CFO Agent — báo cáo tài chính 7h sáng qua Telegram: doanh thu, chi phí, lợi nhuận kèm nhận định AI. Nguồn: Google Sheet hoặc ERP (adapter).",
+      "description": "CFO Agent — dựng một dịch vụ báo cáo tài chính tự động chạy 7h sáng mỗi ngày, đọc số từ Google Sheet, tính doanh thu/chi phí/lợi nhuận, nhờ AI viết nhận định, rồi gửi qua Telegram.",
       "version": "0.1.0",
       "keywords": [
         "tài chính",
@@ -20,20 +20,20 @@
         "báo cáo",
         "telegram",
         "google-sheet",
-        "erp"
+        "cron"
       ]
     },
     {
       "name": "cskh-agent",
       "source": "./plugins/cskh-agent",
-      "description": "Trợ lý CSKH — soạn câu trả lời khách hàng dựa trên kiến thức doanh nghiệp (giá/dịch vụ/chính sách). Test được ngay, không cần cấu hình.",
+      "description": "Trợ lý CSKH — soạn câu trả lời khách hàng dựa trên kiến thức doanh nghiệp (giá, dịch vụ, chính sách). Chạy qua gói Claude Code, test được ngay không cần cấu hình.",
       "version": "0.1.0",
       "keywords": [
         "cskh",
         "chăm sóc khách hàng",
         "chatbot",
-        "sale",
-        "trả lời"
+        "trả lời",
+        "sale"
       ]
     },
     {
@@ -120,6 +120,443 @@
         "tuần",
         "báo cáo",
         "lãnh đạo"
+      ]
+    },
+    {
+      "name": "reply-approval",
+      "source": "./plugins/reply-approval",
+      "description": "Human-in-the-loop: AI soạn câu trả lời khách, đẩy qua Telegram để bạn bấm Duyệt/Sửa/Bỏ trước khi gửi.",
+      "version": "0.1.0",
+      "keywords": [
+        "cskh",
+        "human-in-the-loop",
+        "duyệt",
+        "telegram",
+        "trả lời"
+      ]
+    },
+    {
+      "name": "rag-knowledge",
+      "source": "./plugins/rag-knowledge",
+      "description": "RAG kiến thức công ty: bot học bảng giá/chính sách/quy trình từ thư mục tài liệu, trả lời có trích nguồn. Test được ngay.",
+      "version": "0.1.0",
+      "keywords": [
+        "rag",
+        "kiến thức",
+        "bảng giá",
+        "chính sách",
+        "hỏi đáp"
+      ]
+    },
+    {
+      "name": "cskh-monitor",
+      "source": "./plugins/cskh-monitor",
+      "description": "Giám sát nhân viên tư vấn: chấm điểm phản hồi chậm, khách bị bỏ sót, kèm nhận định AI. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "giám sát",
+        "cskh",
+        "sla",
+        "chấm điểm",
+        "chất lượng"
+      ]
+    },
+    {
+      "name": "zalo-zns",
+      "source": "./plugins/zalo-zns",
+      "description": "Zalo ZNS: xác nhận đơn, nhắc lịch hẹn, nhắc thanh toán theo mẫu. Soạn nội dung tự động, gửi qua connector Zalo (seam).",
+      "version": "0.1.0",
+      "keywords": [
+        "zalo",
+        "zns",
+        "nhắc hẹn",
+        "xác nhận đơn",
+        "thanh toán"
+      ]
+    },
+    {
+      "name": "zalo-blast",
+      "source": "./plugins/zalo-blast",
+      "description": "Zalo blast khách cũ theo phân khúc: sinh nhật, 6 tháng chưa quay lại... AI soạn tin riêng từng nhóm. Gửi qua connector (seam).",
+      "version": "0.1.0",
+      "keywords": [
+        "zalo",
+        "blast",
+        "chăm sóc khách cũ",
+        "phân khúc",
+        "marketing"
+      ]
+    },
+    {
+      "name": "survey-auto",
+      "source": "./plugins/survey-auto",
+      "description": "Survey tự động sau dịch vụ: gửi khảo sát cho khách vừa xong dịch vụ và tổng hợp phản hồi bằng AI. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "survey",
+        "khảo sát",
+        "hài lòng",
+        "nps",
+        "sau dịch vụ"
+      ]
+    },
+    {
+      "name": "bot-booking",
+      "source": "./plugins/bot-booking",
+      "description": "Bot booking: đọc tin nhắn khách, trích nhu cầu, kiểm tra lịch trống và soạn báo giá + xác nhận đặt lịch nhanh. Test được ngay.",
+      "version": "0.1.0",
+      "keywords": [
+        "booking",
+        "đặt lịch",
+        "báo giá",
+        "lịch hẹn",
+        "chatbot"
+      ]
+    },
+    {
+      "name": "social-dm",
+      "source": "./plugins/social-dm",
+      "description": "Reply/DM automation cho TikTok/Facebook: phân loại comment/DM và soạn câu trả lời theo tông từng nền tảng. Gửi qua connector (seam).",
+      "version": "0.1.0",
+      "keywords": [
+        "tiktok",
+        "facebook",
+        "dm",
+        "comment",
+        "social"
+      ]
+    },
+    {
+      "name": "lead-hunter",
+      "source": "./plugins/lead-hunter",
+      "description": "Lead Hunter: quét bài/bình luận từ group, fanpage (bản export), AI chấm điểm khách tiềm năng và xếp hạng. Gửi Telegram top khách.",
+      "version": "0.1.0",
+      "keywords": [
+        "lead",
+        "quét khách",
+        "group",
+        "fanpage",
+        "tiềm năng"
+      ]
+    },
+    {
+      "name": "order-pipeline",
+      "source": "./plugins/order-pipeline",
+      "description": "Quản lý đơn hàng đa bước qua các khâu NHẬN → XỬ LÝ → QC → TẠO ĐƠN → XONG: xem bảng theo khâu kèm AI tóm tắt tình hình, chuyển đơn sang khâu kế và ghi lại orders.csv. Báo Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "đơn hàng",
+        "pipeline",
+        "quy trình",
+        "sản xuất",
+        "điều phối"
+      ]
+    },
+    {
+      "name": "group-command-bot",
+      "source": "./plugins/group-command-bot",
+      "description": "Bot lệnh trong group Telegram: nhân viên gõ keyword (vd /donmoi, /tonkho), bot đọc file CSV, lọc dữ liệu và trả lời ngay trong nhóm.",
+      "version": "0.1.0",
+      "keywords": [
+        "telegram",
+        "bot lệnh",
+        "group",
+        "keyword",
+        "vận hành",
+        "tồn kho"
+      ]
+    },
+    {
+      "name": "order-status",
+      "source": "./plugins/order-status",
+      "description": "Đọc orders.csv, đếm đơn ở mỗi khâu và tra chi tiết từng đơn; gửi Telegram tổng quan.",
+      "version": "0.1.0",
+      "keywords": [
+        "đơn hàng",
+        "trạng thái",
+        "khâu sản xuất",
+        "theo dõi",
+        "tiến độ"
+      ]
+    },
+    {
+      "name": "order-sla",
+      "source": "./plugins/order-sla",
+      "description": "Nhắc SLA khâu trễ deadline: so hạn xử lý từng khâu/đơn với hôm nay, cảnh báo trễ/sắp hạn kèm người phụ trách và lời nhắc đốc thúc AI. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "SLA",
+        "deadline",
+        "đơn hàng",
+        "nhắc việc",
+        "vận hành"
+      ]
+    },
+    {
+      "name": "payment-confirm",
+      "source": "./plugins/payment-confirm",
+      "description": "Xác nhận thanh toán qua nút bấm Telegram: gửi tin [✅ Đã nhận tiền][❌ Chưa] tới kế toán, ghi payments.csv trạng thái CHỜ, poll cập nhật ĐÃ XÁC NHẬN/CHƯA và sửa lại tin.",
+      "version": "0.1.0",
+      "keywords": [
+        "xác nhận thanh toán",
+        "telegram",
+        "nút bấm",
+        "kế toán",
+        "phê duyệt"
+      ]
+    },
+    {
+      "name": "delivery-notify",
+      "source": "./plugins/delivery-notify",
+      "description": "Đọc deliveries.csv, với đơn 'đã giao' thì AI soạn tin báo khách, gửi qua connector (seam) và ghi lại trạng thái đã báo.",
+      "version": "0.1.0",
+      "keywords": [
+        "giao hàng",
+        "báo khách",
+        "tự động hóa",
+        "đơn hàng",
+        "connector"
+      ]
+    },
+    {
+      "name": "customer-tracking",
+      "source": "./plugins/customer-tracking",
+      "description": "Khách tự tra trạng thái đơn theo số điện thoại; AI trả lời tự nhiên trạng thái từng đơn từ orders.csv.",
+      "version": "0.1.0",
+      "keywords": [
+        "tra đơn",
+        "số điện thoại",
+        "trạng thái đơn",
+        "chăm sóc khách hàng",
+        "theo dõi"
+      ]
+    },
+    {
+      "name": "dept-handoff",
+      "source": "./plugins/dept-handoff",
+      "description": "Điều phối đơn giữa các bộ phận SALES → SẢN XUẤT → GIAO: bàn giao đơn, AI soạn thông báo và gửi Telegram vào chat của bộ phận nhận.",
+      "version": "0.1.0",
+      "keywords": [
+        "điều phối",
+        "bàn giao",
+        "bộ phận",
+        "đơn hàng",
+        "telegram",
+        "sản xuất"
+      ]
+    },
+    {
+      "name": "ops-daily-report",
+      "source": "./plugins/ops-daily-report",
+      "description": "Báo cáo vận hành cuối ngày: đếm đơn theo từng khâu, phát hiện khâu tắc (tồn nhiều/quá hạn/ứ đọng), AI nhận định và đề xuất xử lý. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "vận hành",
+        "đơn hàng",
+        "báo cáo",
+        "khâu tắc",
+        "cuối ngày"
+      ]
+    },
+    {
+      "name": "eod-report-collector",
+      "source": "./plugins/eod-report-collector",
+      "description": "Bot thu báo cáo cuối ngày: đọc reports.csv của từng nhân viên, AI tổng hợp điểm chính từng phòng và việc tồn/rủi ro, gửi Telegram sếp ~21h.",
+      "version": "0.1.0",
+      "keywords": [
+        "báo cáo cuối ngày",
+        "tổng hợp",
+        "phòng ban",
+        "sếp",
+        "telegram"
+      ]
+    },
+    {
+      "name": "daily-kpi",
+      "source": "./plugins/daily-kpi",
+      "description": "KPI hàng ngày từng nhân viên: đọc kpi.csv, tính % đạt, xếp hạng, AI nhận định ai vượt/ai hụt cần hỗ trợ. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "kpi",
+        "nhân viên",
+        "xếp hạng",
+        "sales",
+        "báo cáo"
+      ]
+    },
+    {
+      "name": "payroll-calc",
+      "source": "./plugins/payroll-calc",
+      "description": "Tính lương theo sản phẩm/ca/show từ work.csv: lương mỗi người = tổng (số lượng × đơn giá), cộng tổng quỹ lương, AI tóm tắt. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "lương",
+        "sản phẩm",
+        "ca",
+        "show",
+        "nhân sự"
+      ]
+    },
+    {
+      "name": "task-reminder",
+      "source": "./plugins/task-reminder",
+      "description": "Nhắc việc checklist (onboarding, deadline, lịch trực) từ tasks.csv: lọc việc quá hạn/đến hạn/chưa xong, AI sắp thứ tự ưu tiên. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "nhắc việc",
+        "checklist",
+        "deadline",
+        "onboarding",
+        "lịch trực"
+      ]
+    },
+    {
+      "name": "attendance-checkin",
+      "source": "./plugins/attendance-checkin",
+      "description": "Chấm công qua bot Telegram: nhân viên gõ /checkin hoặc /checkout, bot ghi attendance.csv (Nhân viên, Ngày, Giờ vào, Giờ ra) và in bảng công trong ngày.",
+      "version": "0.1.0",
+      "keywords": [
+        "chấm công",
+        "telegram",
+        "check-in",
+        "nhân sự",
+        "bot lệnh",
+        "bảng công"
+      ]
+    },
+    {
+      "name": "leave-expense-approval",
+      "source": "./plugins/leave-expense-approval",
+      "description": "Bot Telegram luồng duyệt nghỉ phép / chi phí: nhân viên gửi yêu cầu, quản lý bấm nút Duyệt/Từ chối, tự cập nhật trạng thái và ghi log requests.csv.",
+      "version": "0.1.0",
+      "keywords": [
+        "nghỉ phép",
+        "chi phí",
+        "phê duyệt",
+        "telegram",
+        "luồng duyệt"
+      ]
+    },
+    {
+      "name": "master-assistant",
+      "source": "./plugins/master-assistant",
+      "description": "Trợ lý tổng (router) — hỏi một câu bằng tiếng Việt, AI đọc danh mục agent đã cài (agents.csv) rồi chỉ ra nên dùng agent/lệnh nào và làm ngay bước gì.",
+      "version": "0.1.0",
+      "keywords": [
+        "trợ lý",
+        "router",
+        "điều phối",
+        "danh mục agent",
+        "hỏi đáp"
+      ]
+    },
+    {
+      "name": "ads-reporter",
+      "source": "./plugins/ads-reporter",
+      "description": "Báo cáo Meta/TikTok Ads mỗi sáng: đọc ads.csv, tính tổng chi và CPM/CPC/CPL từng kênh & chiến dịch, AI nhận định nên tăng ngân sách hay tắt. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "ads",
+        "meta",
+        "tiktok",
+        "cpl",
+        "quảng cáo",
+        "báo cáo"
+      ]
+    },
+    {
+      "name": "ads-manager-chat",
+      "source": "./plugins/ads-manager-chat",
+      "description": "Điều khiển quảng cáo bằng lệnh Telegram: bật/tắt campaign, đổi ngân sách. Áp lên nền tảng qua connector (seam), ghi actions.csv, hiểu cả câu nói tự nhiên nhờ Claude Code.",
+      "version": "0.1.0",
+      "keywords": [
+        "quảng cáo",
+        "campaign",
+        "ngân sách",
+        "telegram",
+        "điều khiển",
+        "ads"
+      ]
+    },
+    {
+      "name": "ab-test-tracker",
+      "source": "./plugins/ab-test-tracker",
+      "description": "Theo dõi A/B test creative: tính CTR/CVR mỗi biến thể, chọn winner mỗi nhóm, AI nhận định nên nhân bản/cắt. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "a/b test",
+        "creative",
+        "quảng cáo",
+        "ctr",
+        "chuyển đổi",
+        "tối ưu"
+      ]
+    },
+    {
+      "name": "content-hunter",
+      "source": "./plugins/content-hunter",
+      "description": "Content Hunter: quét TikTok/YouTube (bản export) tìm format viral trong ngách, AI rút ra hook đang lên và cách áp dụng cho ngành của bạn. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "content",
+        "viral",
+        "format",
+        "tiktok",
+        "youtube",
+        "hook"
+      ]
+    },
+    {
+      "name": "competitor-intel",
+      "source": "./plugins/competitor-intel",
+      "description": "Tình báo đối thủ: đọc competitor.csv (ad|post), AI tóm tắt động thái từng đối thủ và cảnh báo mối đe dọa/cơ hội. Gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "đối thủ",
+        "tình báo",
+        "quảng cáo",
+        "cảnh báo",
+        "marketing",
+        "theo dõi"
+      ]
+    },
+    {
+      "name": "voucher-maker",
+      "source": "./plugins/voucher-maker",
+      "description": "Bot tạo nội dung voucher/ấn phẩm theo template: AI soạn tiêu đề, ưu đãi, điều kiện, thời hạn và sinh mã voucher, xuất ra voucher.html tự chứa. Không cần ảnh, không cần Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "voucher",
+        "khuyến mãi",
+        "ấn phẩm",
+        "template",
+        "marketing"
+      ]
+    },
+    {
+      "name": "comment-insight",
+      "source": "./plugins/comment-insight",
+      "description": "Đọc comments.csv (Nguồn, Nội dung), AI gom mối quan tâm/thắc mắc của khách thành 3-5 insight kèm gợi ý chủ đề content nên làm, gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "comment khách",
+        "insight",
+        "content",
+        "gom nhóm",
+        "telegram"
+      ]
+    },
+    {
+      "name": "content-calendar",
+      "source": "./plugins/content-calendar",
+      "description": "Lịch content: nhắc bài đăng hôm nay và 3 ngày tới chưa đăng, cảnh báo ngày trống, AI gợi ý, gửi Telegram.",
+      "version": "0.1.0",
+      "keywords": [
+        "content",
+        "lịch đăng bài",
+        "nhắc lịch",
+        "social media",
+        "telegram"
       ]
     }
   ]

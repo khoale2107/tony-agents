@@ -1,0 +1,7 @@
+{
+  "name": "rag-knowledge",
+  "version": "0.1.0",
+  "description": "RAG kiến thức công ty: bot học bảng giá/chính sách/quy trình từ thư mục tài liệu, trả lời có trích nguồn. Test được ngay.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["rag", "kiến thức", "bảng giá", "chính sách", "hỏi đáp"]
+}

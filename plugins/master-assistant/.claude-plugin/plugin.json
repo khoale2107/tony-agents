@@ -1,0 +1,9 @@
+{
+  "name": "master-assistant",
+  "version": "0.1.0",
+  "description": "Trợ lý tổng (router) — hỏi một câu bằng tiếng Việt, AI đọc danh mục agent đã cài (agents.csv) rồi chỉ ra nên dùng agent/lệnh nào và làm ngay bước gì.",
+  "author": {
+    "name": "Tony Wedding Academy"
+  },
+  "keywords": ["trợ lý", "router", "điều phối", "danh mục agent", "hỏi đáp"]
+}

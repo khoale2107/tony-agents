@@ -1,0 +1,7 @@
+{
+  "name": "eod-report-collector",
+  "version": "0.1.0",
+  "description": "Bot thu báo cáo cuối ngày: đọc reports.csv của từng nhân viên, AI tổng hợp điểm chính từng phòng và việc tồn/rủi ro, gửi Telegram sếp ~21h.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["báo cáo cuối ngày", "tổng hợp", "phòng ban", "sếp", "telegram"]
+}

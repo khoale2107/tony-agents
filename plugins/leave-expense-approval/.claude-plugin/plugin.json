@@ -1,0 +1,7 @@
+{
+  "name": "leave-expense-approval",
+  "version": "0.1.0",
+  "description": "Bot Telegram luồng duyệt nghỉ phép / chi phí: nhân viên gửi yêu cầu, quản lý bấm nút Duyệt/Từ chối, tự cập nhật trạng thái và ghi log requests.csv.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["nghỉ phép", "chi phí", "phê duyệt", "telegram", "luồng duyệt"]
+}

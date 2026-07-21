@@ -21,3 +21,32 @@ so_ke.csv
 requests.csv
 .tg_offset
 agent.log
+
+# Connector/collector thật của học viên (có thể chứa token) — chỉ giữ bản *_example
+connector.py
+collector.py
+
+# File cục bộ do agent sinh khi chạy thật (KHÔNG phải file *_example)
+knowledge/
+orders.csv
+payments.csv
+deliveries.csv
+actions.csv
+attendance.csv
+replies.csv
+requests.csv
+work.csv
+kpi.csv
+tasks.csv
+reports.csv
+comments.csv
+calendar.csv
+ads.csv
+ab.csv
+videos.csv
+competitor.csv
+stock.csv
+agents.csv
+voucher.html
+voucher_maker.csv
+.tg_msgmap.json

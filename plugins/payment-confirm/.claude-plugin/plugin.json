@@ -1,0 +1,7 @@
+{
+  "name": "payment-confirm",
+  "version": "0.1.0",
+  "description": "Xác nhận thanh toán qua nút bấm Telegram: gửi tin [✅ Đã nhận tiền][❌ Chưa] tới kế toán, ghi payments.csv trạng thái CHỜ, poll cập nhật ĐÃ XÁC NHẬN/CHƯA và sửa lại tin.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["xác nhận thanh toán", "telegram", "nút bấm", "kế toán", "phê duyệt"]
+}

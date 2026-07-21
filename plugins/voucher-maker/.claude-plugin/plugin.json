@@ -1,0 +1,7 @@
+{
+  "name": "voucher-maker",
+  "version": "0.1.0",
+  "description": "Bot tạo nội dung voucher/ấn phẩm theo template: AI soạn tiêu đề, ưu đãi, điều kiện, thời hạn và sinh mã voucher, xuất ra voucher.html tự chứa. Không cần ảnh, không cần Telegram.",
+  "author": { "name": "Tony Wedding Academy" },
+  "keywords": ["voucher", "khuyến mãi", "ấn phẩm", "template", "marketing"]
+}
