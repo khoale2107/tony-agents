@@ -1,0 +1,296 @@
+<title>Tony Agents — Bộ 43 AI Agent cho doanh nghiệp</title>
+<meta name="description" content="43 AI Agent cài bằng Claude Code, chạy trên máy bạn qua gói — không cần API key. Danh mục và cách cài cho học viên khóa 50 AI Agents của Tony Academy." />
+<style>
+  :root {
+    --paper: #f4f1ea;
+    --paper-2: #ebe6db;
+    --card: #fbf9f4;
+    --ink: #1c2b2d;
+    --ink-soft: #4a5b5c;
+    --ink-faint: #7d8b89;
+    --line: #d9d2c4;
+    --seal: #b8402f;        /* đỏ son con dấu */
+    --seal-deep: #99331f;
+    --moss: #3f6f52;        /* xanh rêu trạng thái */
+    --gold: #a9782f;
+    --mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+    --sans: "Helvetica Neue", Arial, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --shadow: 0 1px 0 rgba(28,43,45,.04), 0 12px 30px -20px rgba(28,43,45,.35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14201f; --paper-2: #0f1918; --card: #1b2827;
+      --ink: #eef0e9; --ink-soft: #b3bfba; --ink-faint: #7f8f8a;
+      --line: #2c3b39; --seal: #e0745f; --seal-deep: #cf5a44;
+      --moss: #7bb892; --gold: #d5a860;
+      --shadow: 0 1px 0 rgba(0,0,0,.2), 0 18px 40px -24px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14201f; --paper-2: #0f1918; --card: #1b2827;
+    --ink: #eef0e9; --ink-soft: #b3bfba; --ink-faint: #7f8f8a;
+    --line: #2c3b39; --seal: #e0745f; --seal-deep: #cf5a44;
+    --moss: #7bb892; --gold: #d5a860;
+    --shadow: 0 1px 0 rgba(0,0,0,.2), 0 18px 40px -24px rgba(0,0,0,.7);
+  }
+  :root[data-theme="light"] {
+    --paper: #f4f1ea; --paper-2: #ebe6db; --card: #fbf9f4;
+    --ink: #1c2b2d; --ink-soft: #4a5b5c; --ink-faint: #7d8b89;
+    --line: #d9d2c4; --seal: #b8402f; --seal-deep: #99331f;
+    --moss: #3f6f52; --gold: #a9782f;
+    --shadow: 0 1px 0 rgba(28,43,45,.04), 0 12px 30px -20px rgba(28,43,45,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink) 8%, transparent) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+
+  /* top bar */
+  header.top {
+    position: sticky; top: 0; z-index: 40;
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .top .row { display: flex; align-items: center; gap: 16px; padding: 12px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.01em; }
+  .seal {
+    width: 30px; height: 30px; border-radius: 7px; flex: none;
+    background: var(--seal); color: #fff; display: grid; place-items: center;
+    font-family: var(--mono); font-weight: 700; font-size: 15px;
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, #fff 30%, transparent);
+    transform: rotate(-3deg);
+  }
+  .top nav { margin-left: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+  .top nav a {
+    font: 600 12.5px/1 var(--sans); color: var(--ink-soft);
+    text-decoration: none; padding: 8px 11px; border-radius: 7px; white-space: nowrap;
+  }
+  .top nav a:hover { color: var(--ink); background: var(--paper-2); }
+  .theme-btn {
+    border: 1px solid var(--line); background: var(--card); color: var(--ink-soft);
+    width: 34px; height: 34px; border-radius: 8px; cursor: pointer; flex: none;
+    display: grid; place-items: center; font-size: 15px;
+  }
+  .theme-btn:hover { color: var(--ink); }
+
+  /* hero */
+  .hero { padding: 62px 0 34px; }
+  .eyebrow {
+    font: 700 12px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase;
+    color: var(--seal); margin: 0 0 18px;
+  }
+  .hero h1 {
+    font: 800 clamp(34px, 6vw, 58px)/1.02 var(--sans);
+    letter-spacing: -.025em; margin: 0 0 18px; text-wrap: balance; max-width: 16ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--seal); }
+  .lede { font-size: clamp(16px, 2.3vw, 19px); color: var(--ink-soft); max-width: 60ch; margin: 0 0 26px; }
+  .stats { display: flex; gap: 28px; flex-wrap: wrap; margin: 0 0 34px; }
+  .stat .n { font: 800 26px/1 var(--sans); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .stat .l { font: 600 12px/1.3 var(--sans); color: var(--ink-faint); margin-top: 5px; text-transform: uppercase; letter-spacing: .05em; }
+
+  /* terminal card */
+  .term {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden; max-width: 640px;
+  }
+  .term .bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+  .term .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--line); }
+  .term .bar span { margin-left: 8px; font: 600 12px/1 var(--mono); color: var(--ink-faint); }
+  .term .body { padding: 16px 16px 6px; font-family: var(--mono); font-size: 13.5px; }
+  .cmd { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; }
+  .cmd .p { color: var(--moss); user-select: none; }
+  .cmd code { color: var(--ink); flex: 1; word-break: break-word; }
+  .cmd .cp {
+    border: 1px solid var(--line); background: transparent; color: var(--ink-faint);
+    border-radius: 6px; font: 600 11px/1 var(--sans); padding: 5px 8px; cursor: pointer; flex: none;
+  }
+  .cmd .cp:hover { color: var(--seal); border-color: var(--seal); }
+  .term .note { padding: 6px 16px 15px; font: 500 12px/1.5 var(--sans); color: var(--ink-faint); font-family: var(--sans); }
+  .term .note b { color: var(--ink-soft); font-weight: 700; }
+
+  /* how */
+  .how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 8px 0 12px; }
+  .how .step { padding: 4px 2px; }
+  .how .k { font: 700 12px/1 var(--mono); color: var(--seal); letter-spacing: .1em; }
+  .how h4 { margin: 10px 0 5px; font-size: 15px; letter-spacing: -.01em; }
+  .how p { margin: 0; font-size: 13.5px; color: var(--ink-soft); }
+  @media (max-width: 680px) { .how { grid-template-columns: 1fr; gap: 20px; } }
+
+  /* sections */
+  section.grp { padding: 40px 0 8px; scroll-margin-top: 72px; }
+  .grp-head { display: flex; align-items: baseline; gap: 14px; margin: 0 0 4px; border-top: 2px solid var(--ink); padding-top: 14px; }
+  .grp-head h2 { font: 800 22px/1.1 var(--sans); letter-spacing: -.02em; margin: 0; }
+  .grp-head .count { font: 700 12px/1 var(--mono); color: #fff; background: var(--seal); padding: 5px 8px; border-radius: 20px; }
+  .grp-sub { color: var(--ink-soft); font-size: 14px; margin: 0 0 20px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+  .agent {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 9px;
+    transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  @media (prefers-reduced-motion: reduce) { .agent { transition: none; } }
+  .agent:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--seal) 40%, var(--line)); }
+  .agent .name { font: 700 15px/1.2 var(--mono); color: var(--ink); letter-spacing: -.01em; word-break: break-word; }
+  .agent .d { font-size: 13px; color: var(--ink-soft); flex: 1; }
+  .agent .foot { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
+  .agent .foot code { font: 600 11.5px/1 var(--mono); color: var(--seal); background: color-mix(in srgb, var(--seal) 9%, transparent); padding: 6px 8px; border-radius: 6px; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .agent .foot .cp2 { border: 1px solid var(--line); background: transparent; color: var(--ink-faint); border-radius: 6px; font: 600 11px/1 var(--sans); padding: 6px 9px; cursor: pointer; flex: none; }
+  .agent .foot .cp2:hover { color: var(--seal); border-color: var(--seal); }
+
+  /* footer */
+  footer { margin-top: 56px; border-top: 1px solid var(--line); background: var(--paper-2); }
+  footer .wrap { padding: 34px 22px 40px; display: flex; flex-wrap: wrap; gap: 22px 40px; align-items: flex-start; }
+  footer .col h5 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-faint); }
+  footer .col p, footer .col a { font-size: 13.5px; color: var(--ink-soft); margin: 3px 0; text-decoration: none; display: block; }
+  footer .col a:hover { color: var(--seal); }
+  footer .brandline { font-weight: 800; color: var(--ink); }
+
+  .toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(20px); opacity: 0; background: var(--ink); color: var(--paper); font: 600 13px/1 var(--sans); padding: 12px 18px; border-radius: 10px; pointer-events: none; transition: all .2s ease; z-index: 80; }
+  .toast.on { transform: translateX(-50%) translateY(0); opacity: 1; }
+  a.skip { position: absolute; left: -999px; }
+  a.skip:focus { left: 12px; top: 12px; background: var(--card); padding: 8px 12px; border-radius: 8px; z-index: 99; }
+  :focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; border-radius: 4px; }
+</style>
+
+<a href="#danh-muc" class="skip">Bỏ qua tới danh mục</a>
+
+<header class="top">
+  <div class="wrap row">
+    <div class="brand"><span class="seal">T</span> Tony&nbsp;Agents</div>
+    <nav id="nav"></nav>
+    <button class="theme-btn" id="theme" aria-label="Đổi giao diện sáng/tối">◐</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="eyebrow">Khóa 50 AI Agents · Tony Academy</p>
+    <h1>Bộ <em>43 AI Agent</em> cắm thẳng vào doanh nghiệp của bạn.</h1>
+    <p class="lede">Mỗi agent là một bộ khung chạy được ngay — cài bằng Claude Code, chạy trên máy bạn qua <b>chính gói Claude của bạn</b>. Không cần API key, không cần biết code. Xem thử, rồi thay dữ liệu &amp; kênh của mình vào là dùng.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="n">43</div><div class="l">agent sẵn dùng</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">lệnh để cài mỗi agent</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">đồng phí API</div></div>
+      <div class="stat"><div class="n">Mac / Win</div><div class="l">chạy trên máy bạn</div></div>
+    </div>
+
+    <div class="term" aria-label="Lệnh cài đặt">
+      <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>Claude Code — cài một lần</span></div>
+      <div class="body">
+        <div class="cmd"><span class="p">▸</span><code id="c0">/plugin marketplace add khoale2107/tony-agents</code><button class="cp" data-copy="#c0">Chép</button></div>
+        <div class="cmd"><span class="p">▸</span><code id="c1">/plugin install cfo-agent@tony-agents</code><button class="cp" data-copy="#c1">Chép</button></div>
+        <div class="cmd"><span class="p">▸</span><code id="c2">/setup-cfo-agent</code><button class="cp" data-copy="#c2">Chép</button></div>
+      </div>
+      <p class="note">Đổi <b>cfo-agent</b> bằng tên bất kỳ trong danh mục bên dưới. Trợ lý sẽ tự dựng agent, hỏi dữ liệu &amp; đặt lịch giúp bạn.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="how">
+      <div class="step"><div class="k">01 · CÀI</div><h4>Thêm marketplace</h4><p>Mở Claude Code, gõ một lệnh để nạp toàn bộ bộ agent vào máy.</p></div>
+      <div class="step"><div class="k">02 · DỰNG</div><h4>Chọn agent &amp; /setup</h4><p>Cài agent cần dùng, gõ <code>/setup-…</code> — chạy thử ngay với dữ liệu mẫu.</p></div>
+      <div class="step"><div class="k">03 · CẮM DATA</div><h4>Thay của bạn vào</h4><p>Đấu Google Sheet / ERP, token Telegram–Zalo, rồi nhờ AI mở rộng theo mô hình của bạn.</p></div>
+    </div>
+  </section>
+
+  <div class="wrap" id="danh-muc" style="padding-top:8px">
+    <div id="groups"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col" style="flex:1 1 240px">
+      <div class="brandline">Tony Agents</div>
+      <p>Bộ AI Agent của khóa <b>50 AI Agents</b> — Tony Academy. Cài bằng Claude Code, mỗi học viên chạy trên máy mình bằng tài khoản Claude của chính mình.</p>
+    </div>
+    <div class="col">
+      <h5>Yêu cầu</h5>
+      <p>Đã cài <code>claude</code> và <code>claude login</code></p>
+      <p>Máy bật + đăng nhập gói để chạy nền</p>
+      <p><code>ad-image-composer</code> cần <code>pip3 install Pillow</code></p>
+    </div>
+    <div class="col">
+      <h5>Bảo mật</h5>
+      <p>Template không chứa key của ai</p>
+      <p>Dữ liệu &amp; token chỉ nằm trong <code>.env</code> máy bạn</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Đã chép</div>
+
+<script>
+  const DATA = [{"title": "Tài chính & Kế toán", "sub": "Báo cáo, ngân sách, lợi nhuận, hoá đơn — chạy tự động mỗi sáng.", "items": [{"name": "cfo-agent", "desc": "dựng một dịch vụ báo cáo tài chính tự động chạy 7h sáng mỗi ngày, đọc số từ Google Sheet,…"}, {"name": "budget-controller", "desc": "Cảnh báo ngân sách theo phòng ban: so chi thực tế với ngân sách tháng, cảnh báo vượt/sắp…"}, {"name": "profit-center", "desc": "Lãi/lỗ theo chi nhánh/cửa hàng: tính doanh thu-chi phí-lợi nhuận từng chi nhánh, xếp hạng,…"}, {"name": "weekly-revenue", "desc": "Báo cáo doanh thu tuần cho ban lãnh đạo: so 7 ngày gần nhất với tuần trước, bóc theo ngày,…"}, {"name": "spend-anomaly", "desc": "Phát hiện khoản chi vượt trung bình và hoá đơn nghi trùng, kèm nhận định AI"}, {"name": "ocr-invoice", "desc": "Chụp/đưa ảnh hoá đơn, AI đọc và tự ghi sổ (thêm dòng vào so_ke.csv)"}, {"name": "duyet-chi", "desc": "Duyệt chi đa cấp qua Telegram: định tuyến theo số tiền (<5tr trưởng nhóm, 5-20tr quản lý,…"}]}, {"title": "Sales, CSKH & Zalo", "sub": "Trả lời khách, chăm sóc, săn và nhắc lead, blast Zalo.", "items": [{"name": "cskh-agent", "desc": "soạn câu trả lời khách hàng dựa trên kiến thức doanh nghiệp (giá, dịch vụ, chính sách)"}, {"name": "rag-knowledge", "desc": "RAG kiến thức công ty: bot học bảng giá/chính sách/quy trình từ thư mục tài liệu, trả lời…"}, {"name": "reply-approval", "desc": "Human-in-the-loop: AI soạn câu trả lời khách, đẩy qua Telegram để bạn bấm Duyệt/Sửa/Bỏ…"}, {"name": "cskh-monitor", "desc": "Giám sát nhân viên tư vấn: chấm điểm phản hồi chậm, khách bị bỏ sót, kèm nhận định AI"}, {"name": "lead-morning", "desc": "Điểm danh khách tiềm năng mỗi sáng: lead mới, khách 3+ ngày chưa xử lý, nghi no-show, kèm…"}, {"name": "lead-hunter", "desc": "Lead Hunter: quét bài/bình luận từ group, fanpage (bản export), AI chấm điểm khách tiềm…"}, {"name": "zalo-zns", "desc": "Zalo ZNS: xác nhận đơn, nhắc lịch hẹn, nhắc thanh toán theo mẫu"}, {"name": "zalo-blast", "desc": "Zalo blast khách cũ theo phân khúc: sinh nhật, 6 tháng chưa quay lại.."}, {"name": "survey-auto", "desc": "Survey tự động sau dịch vụ: gửi khảo sát cho khách vừa xong dịch vụ và tổng hợp phản hồi…"}, {"name": "bot-booking", "desc": "Bot booking: đọc tin nhắn khách, trích nhu cầu, kiểm tra lịch trống và soạn báo giá + xác…"}, {"name": "social-dm", "desc": "Reply/DM automation cho TikTok/Facebook: phân loại comment/DM và soạn câu trả lời theo tông…"}]}, {"title": "Vận hành & Đơn hàng", "sub": "Theo dõi đơn qua từng khâu, nhắc SLA, xác nhận & điều phối.", "items": [{"name": "order-pipeline", "desc": "Quản lý đơn hàng đa bước qua các khâu NHẬN → XỬ LÝ → QC → TẠO ĐƠN → XONG: xem bảng theo…"}, {"name": "order-status", "desc": "Đọc orders.csv, đếm đơn ở mỗi khâu và tra chi tiết từng đơn; gửi Telegram tổng quan."}, {"name": "order-sla", "desc": "Nhắc SLA khâu trễ deadline: so hạn xử lý từng khâu/đơn với hôm nay, cảnh báo trễ/sắp hạn…"}, {"name": "dept-handoff", "desc": "Điều phối đơn giữa các bộ phận SALES → SẢN XUẤT → GIAO: bàn giao đơn, AI soạn thông báo và…"}, {"name": "payment-confirm", "desc": "Xác nhận thanh toán qua nút bấm Telegram: gửi tin [✅ Đã nhận tiền][❌ Chưa] tới kế toán, ghi…"}, {"name": "delivery-notify", "desc": "Đọc deliveries.csv, với đơn 'đã giao' thì AI soạn tin báo khách, gửi qua connector (seam)…"}, {"name": "customer-tracking", "desc": "Khách tự tra trạng thái đơn theo số điện thoại; AI trả lời tự nhiên trạng thái từng đơn từ…"}, {"name": "group-command-bot", "desc": "Bot lệnh trong group Telegram: nhân viên gõ keyword (vd /donmoi, /tonkho), bot đọc file…"}, {"name": "ops-daily-report", "desc": "Báo cáo vận hành cuối ngày: đếm đơn theo từng khâu, phát hiện khâu tắc (tồn nhiều/quá hạn/ứ…"}]}, {"title": "Nhân sự & Nội bộ", "sub": "Báo cáo, KPI, lương, chấm công, nghỉ phép — thay ERP đắt tiền.", "items": [{"name": "daily-kpi", "desc": "KPI hàng ngày từng nhân viên: đọc kpi.csv, tính % đạt, xếp hạng, AI nhận định ai vượt/ai…"}, {"name": "payroll-calc", "desc": "Tính lương theo sản phẩm/ca/show từ work.csv: lương mỗi người = tổng (số lượng × đơn giá),…"}, {"name": "attendance-checkin", "desc": "Chấm công qua bot Telegram: nhân viên gõ /checkin hoặc /checkout, bot ghi attendance.csv…"}, {"name": "task-reminder", "desc": "Nhắc việc checklist (onboarding, deadline, lịch trực) từ tasks.csv: lọc việc quá hạn/đến…"}, {"name": "eod-report-collector", "desc": "Bot thu báo cáo cuối ngày: đọc reports.csv của từng nhân viên, AI tổng hợp điểm chính từng…"}, {"name": "leave-expense-approval", "desc": "Bot Telegram luồng duyệt nghỉ phép / chi phí: nhân viên gửi yêu cầu, quản lý bấm nút…"}, {"name": "master-assistant", "desc": "hỏi một câu bằng tiếng Việt, AI đọc danh mục agent đã cài (agents.csv) rồi chỉ ra nên dùng…"}]}, {"title": "Marketing & Content", "sub": "Ads, đối thủ, insight, lịch bài, ghép ảnh quảng cáo.", "items": [{"name": "ads-reporter", "desc": "Báo cáo Meta/TikTok Ads mỗi sáng: đọc ads.csv, tính tổng chi và CPM/CPC/CPL từng kênh &…"}, {"name": "ads-manager-chat", "desc": "Điều khiển quảng cáo bằng lệnh Telegram: bật/tắt campaign, đổi ngân sách"}, {"name": "ab-test-tracker", "desc": "Theo dõi A/B test creative: tính CTR/CVR mỗi biến thể, chọn winner mỗi nhóm, AI nhận định…"}, {"name": "competitor-intel", "desc": "Tình báo đối thủ: đọc competitor.csv (ad|post), AI tóm tắt động thái từng đối thủ và cảnh…"}, {"name": "content-hunter", "desc": "Content Hunter: quét TikTok/YouTube (bản export) tìm format viral trong ngách, AI rút ra…"}, {"name": "comment-insight", "desc": "Đọc comments.csv (Nguồn, Nội dung), AI gom mối quan tâm/thắc mắc của khách thành 3-5…"}, {"name": "content-calendar", "desc": "Lịch content: nhắc bài đăng hôm nay và 3 ngày tới chưa đăng, cảnh báo ngày trống, AI gợi ý,…"}, {"name": "voucher-maker", "desc": "Bot tạo nội dung voucher/ấn phẩm theo template: AI soạn tiêu đề, ưu đãi, điều kiện, thời…"}, {"name": "ad-image-composer", "desc": "Bot ghép ảnh quảng cáo: đưa nhiều ảnh, AI (gói Claude Code) chọn 4 ảnh đẹp nhất và ghép…"}]}];
+
+  // nav
+  const nav = document.getElementById('nav');
+  const groups = document.getElementById('groups');
+  DATA.forEach((g, gi) => {
+    const id = 'g' + gi;
+    const a = document.createElement('a');
+    a.href = '#' + id; a.textContent = g.title;
+    nav.appendChild(a);
+
+    const sec = document.createElement('section');
+    sec.className = 'grp'; sec.id = id;
+    const head = document.createElement('div'); head.className = 'grp-head';
+    const h2 = document.createElement('h2'); h2.textContent = g.title;
+    const cnt = document.createElement('span'); cnt.className = 'count'; cnt.textContent = g.items.length + ' agent';
+    head.appendChild(h2); head.appendChild(cnt);
+    const sub = document.createElement('p'); sub.className = 'grp-sub'; sub.textContent = g.sub;
+    const cards = document.createElement('div'); cards.className = 'cards';
+
+    g.items.forEach(it => {
+      const card = document.createElement('div'); card.className = 'agent';
+      const nm = document.createElement('div'); nm.className = 'name'; nm.textContent = it.name;
+      const d = document.createElement('p'); d.className = 'd'; d.textContent = it.desc;
+      const foot = document.createElement('div'); foot.className = 'foot';
+      const code = document.createElement('code'); code.textContent = '/setup-' + it.name;
+      const cmd = '/plugin install ' + it.name + '@tony-agents\n/setup-' + it.name;
+      const btn = document.createElement('button'); btn.className = 'cp2'; btn.textContent = 'Chép lệnh';
+      btn.addEventListener('click', () => copy(cmd));
+      code.title = cmd;
+      foot.appendChild(code); foot.appendChild(btn);
+      card.appendChild(nm); card.appendChild(d); card.appendChild(foot);
+      cards.appendChild(card);
+    });
+    sec.appendChild(head); sec.appendChild(sub); sec.appendChild(cards);
+    groups.appendChild(sec);
+  });
+
+  // copy
+  const toast = document.getElementById('toast');
+  let t;
+  function copy(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      toast.classList.add('on'); clearTimeout(t);
+      t = setTimeout(() => toast.classList.remove('on'), 1400);
+    });
+  }
+  document.querySelectorAll('[data-copy]').forEach(b => {
+    b.addEventListener('click', () => copy(document.querySelector(b.dataset.copy).textContent));
+  });
+
+  // theme toggle
+  const root = document.documentElement;
+  const tb = document.getElementById('theme');
+  tb.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const dark = cur ? cur === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme', dark ? 'light' : 'dark');
+  });
+</script>
